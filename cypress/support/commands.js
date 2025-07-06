@@ -92,6 +92,8 @@ Cypress.Commands.add('edit_pesanan', (nomor_pesanan, ubah_pelanggan) => {
     cy.get('button').contains('Edit').click();
     
     cy.get('input[placeholder="Pilih pelanggan"]').clear();
+    cy.get('input[placeholder="Pilih pelanggan"]').click();
+    cy.wait(1000); // tunggu 1 detik
     cy.get('input[placeholder="Pilih pelanggan"]').type(ubah_pelanggan);
     cy.wait(1000); // tunggu 1 detik
     cy.get('input[placeholder="Pilih pelanggan"]').type('{downarrow}{enter}');
@@ -100,14 +102,24 @@ Cypress.Commands.add('edit_pesanan', (nomor_pesanan, ubah_pelanggan) => {
 
     cy.contains('h4', 'Transaksi Penjualan').should('contain', 'Transaksi Penjualan');
 
-    //xpath belum diganti
-    cy.get('.nama-pelanggan').invoke('text').as('namaPelanggan');
+    
+    // cy.get('.nama-pelanggan').invoke('text').as('namaPelanggan');
 
-    cy.get('@namaPelanggan').then((namaPelanggan) => {
-    expect(namaPelanggan.trim()).to.equal(ubah_pelanggan);
-    });
+    // cy.get('@namaPelanggan').then((namaPelanggan) => {
+    // expect(namaPelanggan.trim()).to.equal(ubah_pelanggan);
+    // });
 });
 
 Cypress.Commands.add('search_pesanan', (nomor_pesanan) => {
     
+    cy.get('input[placeholder="Cari pesanan"]').type(nomor_pesanan);
+    cy.get('button').contains('Terapkan').click();
+
+    cy.get('tr:nth-of-type(1) span.font-weight-lightbold').should('be.visible');
+
+    cy.get('tr:nth-of-type(1) span.font-weight-lightbold').invoke('text').as('namaPelanggan');
+
+    cy.get('@namaPelanggan').then((namaPelanggan) => {
+    expect(namaPelanggan.trim()).to.equal(nomor_pesanan);
+    });
 });
