@@ -15,8 +15,7 @@ describe('template spec', () => {
 
     cy.get('[style="position: absolute; right: 35px; top: 60px; z-index: 99999; width: 400px; background: rgb(255, 255, 255); height: calc(100% - 130px);"] > .MuiButton-root').click();
     
-
-    cy.edit_pesanan('TAS000000000006','BLIBLI');
+    cy.edit_pesanan('PRODUK000000000008','BLIBLI');
     
 
     

@@ -6,14 +6,11 @@ describe('template spec', () => {
   
     cy.get('.shared1').should('contain', 'Selamat Datang'); //validate header
 
-    cy.create_pesanan('TAS000000000006','BLANJA','LAZADA','PUSAT','TAS');
+    cy.create_pesanan('PRODUK000000000008','BLANJA','LAZADA','PUSAT','SEPATU'); //create pesanan
 
-    cy.edit_pesanan('TAS000000000006','BLIBLI');
-    
+    cy.edit_pesanan('PRODUK000000000008','BLIBLI'); //edit pesanan
 
-    
-
-    // cy.logout(); //logout
+    cy.logout(); //logout
     
 
     
