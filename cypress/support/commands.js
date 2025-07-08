@@ -29,6 +29,7 @@ Cypress.Commands.add('login', (email, password) => {
   cy.visit('https://v2.jubelio.com/auth/login');
   cy.get('#textfield-email').type(email);
   cy.get('#textfield-password').type(password);
+  cy.screenshot();
   cy.get('.MuiButton-root').click();
 });
 
@@ -37,6 +38,7 @@ Cypress.Commands.add('login', (email, password) => {
 Cypress.Commands.add('logout', () => {
     cy.get('.cursor-pointer').click();
     cy.get('.mt-2 > .text-danger').click();
+    cy.screenshot();
 });
 
 Cypress.Commands.add('create_pesanan', (nomor_pesanan, pelanggan, sumber, lokasi, produk) => {
@@ -46,12 +48,14 @@ Cypress.Commands.add('create_pesanan', (nomor_pesanan, pelanggan, sumber, lokasi
     cy.get('.MuiGrid-container > [href="/sales/transactions"]').click();
 
     cy.contains('h4', 'Transaksi Penjualan').should('contain', 'Transaksi Penjualan'); //validate header
+    cy.screenshot();
 
     cy.get('[style="position: absolute; right: 35px; top: 60px; z-index: 99999; width: 400px; background: rgb(255, 255, 255); height: calc(100% - 130px);"] > .MuiButton-root').click();
     cy.get('button').contains('Tambah Baru').click();
     
 
     cy.contains('h4', 'Tambah Pesanan').should('contain', 'Tambah Pesanan'); //validate header //validate header
+    cy.screenshot();
 
     cy.get('input[placeholder="Pilih pelanggan"]').should('be.visible');
 
@@ -72,6 +76,7 @@ Cypress.Commands.add('create_pesanan', (nomor_pesanan, pelanggan, sumber, lokasi
     cy.get('input[placeholder="Pilih lokasi"]').type(lokasi);
     cy.wait(1000); // tunggu 1 detik
     cy.get('input[placeholder="Pilih lokasi"]').type('{downarrow}{enter}');
+    cy.screenshot();
 
     cy.get('button').contains('Tambah Baru').click();
     cy.wait(1000);
@@ -79,10 +84,12 @@ Cypress.Commands.add('create_pesanan', (nomor_pesanan, pelanggan, sumber, lokasi
     cy.wait(1000); // tunggu 1 detik
     cy.get('div.tippy-box input').type('{downarrow}{enter}');
 
+    cy.screenshot();
 
     cy.get('button').contains('Simpan').click();
 
     cy.contains('h4', 'Transaksi Penjualan').should('contain', 'Transaksi Penjualan');
+    cy.screenshot();
 });
 
 Cypress.Commands.add('edit_pesanan', (nomor_pesanan, ubah_pelanggan) => {
@@ -90,6 +97,7 @@ Cypress.Commands.add('edit_pesanan', (nomor_pesanan, ubah_pelanggan) => {
     cy.contains('span', nomor_pesanan).click();
     cy.get('button').contains('Edit').should('be.visible');
     cy.get('button').contains('Edit').click();
+    cy.screenshot();
     
     cy.get('input[placeholder="Pilih pelanggan"]').clear();
     cy.get('input[placeholder="Pilih pelanggan"]').click();
@@ -98,16 +106,12 @@ Cypress.Commands.add('edit_pesanan', (nomor_pesanan, ubah_pelanggan) => {
     cy.wait(1000); // tunggu 1 detik
     cy.get('input[placeholder="Pilih pelanggan"]').type('{downarrow}{enter}');
     cy.wait(1000); // tunggu 1 detik
+    cy.screenshot();
     cy.get('button').contains('Simpan').click();
 
     cy.contains('h4', 'Transaksi Penjualan').should('contain', 'Transaksi Penjualan');
+    cy.screenshot();
 
-    
-    // cy.get('.nama-pelanggan').invoke('text').as('namaPelanggan');
-
-    // cy.get('@namaPelanggan').then((namaPelanggan) => {
-    // expect(namaPelanggan.trim()).to.equal(ubah_pelanggan);
-    // });
 });
 
 Cypress.Commands.add('search_pesanan', (nomor_pesanan) => {

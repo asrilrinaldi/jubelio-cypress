@@ -9,9 +9,9 @@ describe('template spec', () => {
     cy.get('.MuiGrid-container > [href="/sales/transactions"]').click();
     cy.contains('h4', 'Transaksi Penjualan').should('contain', 'Transaksi Penjualan'); //validate header
     cy.get('[style="position: absolute; right: 35px; top: 60px; z-index: 99999; width: 400px; background: rgb(255, 255, 255); height: calc(100% - 130px);"] > .MuiButton-root').click();
-    cy.search_pesanan('PRODUK000000000008');
+    cy.search_pesanan('PRODUK00000000123');
     
-    // cy.logout(); //logout
+    cy.logout(); //logout
     
 
     

@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-07-08T04:20:08.189Z",
+    "end": "2025-07-08T04:20:44.542Z",
+    "duration": 36353,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "6964e237-6985-4d31-910e-0837dda56771",
+      "title": "",
+      "fullFile": "cypress\\e2e\\positive_login.cy.js",
+      "file": "cypress\\e2e\\positive_login.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "29f38570-ca92-4b64-8c24-975497521500",
+          "title": "template spec",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "positive_login",
+              "fullTitle": "template spec positive_login",
+              "timedOut": null,
+              "duration": 33469,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://v2.jubelio.com/auth/login');\ncy.login('asril.rinaldi@gmail.com', 'Ald!082030');\ncy.get('.shared1').should('contain', 'Selamat Datang');\ncy.logout(); //logout",
+              "err": {},
+              "uuid": "8982bf99-3954-4f2d-8d2a-d734d1892204",
+              "parentUUID": "29f38570-ca92-4b64-8c24-975497521500",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "8982bf99-3954-4f2d-8d2a-d734d1892204"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 33469,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
